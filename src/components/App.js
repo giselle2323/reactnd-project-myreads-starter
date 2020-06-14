@@ -30,9 +30,7 @@ const App = () => {
               </div>
               <CatergoryList books={books} onBookShelfChange={moveBookShelf} />
               <div className="open-search">
-                <button>
-                  <Link to="/search">Add a book</Link>
-                </button>
+                <Link to="/search">Add a book</Link>
               </div>
             </div>} />
 

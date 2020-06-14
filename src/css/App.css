@@ -1,7 +1,7 @@
 /* Main Page */
 
 html, body {
-  margin: 0;
+  margin: -11px 0 0 0;
   height: 100%;
   width: 100%;
   line-height: 1.5;
@@ -179,7 +179,7 @@ body, .hero-container {
   bottom: 25px;
 }
 
-.open-search button {
+.open-search a {
   display: block;
   width: 50px;
   height: 50px;
@@ -194,7 +194,7 @@ body, .hero-container {
   outline: 0;
 }
 
-.open-search button:hover {
+.open-search a:hover {
   background-color: #272643;
 }
 
