@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import * as BooksAPI from "../api/BooksAPI";
 import Book from "./Book";
 
@@ -32,14 +33,19 @@ const SearchPage = (props) => {
 
   return (
     <div className="search-container">
-      <div>
-        <input
-          className="search-bar"
-          type="text"
-          placeholder="title, author"
-          value={query}
-          onChange={handleInputChange}
-        />
+      <div className="search-books">
+        <div className="search-books-bar">
+          <Link className="close-search" to="/dashboard">Close</Link>
+          <div className="search-books-input-wrapper">
+            <input
+              className="search-bar"
+              type="text"
+              placeholder="title, author"
+              value={query}
+              onChange={handleInputChange}
+            />
+          </div>
+        </div>
       </div>
       <div className="search-results">
         {!matchedBooks.error &&
