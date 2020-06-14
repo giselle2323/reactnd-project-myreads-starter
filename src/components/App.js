@@ -27,6 +27,7 @@ const App = () => {
         <Route exact path="/dashboard" render={() => <div className="books-container">
               <div className="book-header">
                 <h1 className="book-header-text">MyReads</h1>
+                <Link to='/'>Home</Link>
               </div>
               <CatergoryList books={books} onBookShelfChange={moveBookShelf} />
               <div className="open-search">
