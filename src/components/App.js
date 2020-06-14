@@ -21,35 +21,24 @@ const App = () => {
     BooksAPI.update(book, newValue);
   };
 
-  return (
-    <Router>
+  return <Router>
       <div className="app">
         <Route exact path="/" render={() => <Home />} />
-        <Route
-          exact
-          path="/dashboard"
-          render={() => (
-            <div className="books-container">
+        <Route exact path="/dashboard" render={() => <div className="books-container">
               <div className="book-header">
                 <h1 className="book-header-text">MyReads</h1>
               </div>
               <CatergoryList books={books} onBookShelfChange={moveBookShelf} />
               <div className="open-search">
-                <Link to="/search">Add a book</Link>
+                <button>
+                  <Link to="/search">Add a book</Link>
+                </button>
               </div>
-            </div>
-          )}
-        />
+            </div>} />
 
-        <Route
-          path="/search"
-          render={() => (
-            <Search books={books} onBookShelfChange={moveBookShelf} />
-          )}
-        />
+        <Route path="/search" render={() => <Search books={books} onBookShelfChange={moveBookShelf} />} />
       </div>
-    </Router>
-  );
+    </Router>;
 };
 
 export default App;

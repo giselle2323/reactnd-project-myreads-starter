@@ -96,9 +96,9 @@ body, .hero-container {
 
 .book-header-text {
   text-align: center;
-  color: #fff;
+  color: #272643;
   padding: 10px;
-  background-color: #272643;
+  background-color: #c8cfd9;
 }
 
 .book-main-container {
@@ -129,11 +129,18 @@ body, .hero-container {
   padding: 10px 10px 10px 0;
 }
 
+.book-shelf-title {
+  padding: 0 0 0 10px;
+  color: #000000b0;
+}
+
 .book-title {
+  color: #000000b0;
   padding: 5px 5px 5px 0;
 }
 
 .book-authors {
+  color: #000000b0;
   padding: 5px 5px 5px 0;
 }
 
@@ -166,6 +173,31 @@ body, .hero-container {
   outline: none;
 }
 
+.open-search {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+}
+
+.open-search button {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #272643;
+  background-image: url('../images/icons/add.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 28px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  font-size: 0;
+  outline: 0;
+}
+
+.open-search button:hover {
+  background-color: #272643;
+}
+
 .close-search {
   display: block;
   top: 20px;
@@ -180,13 +212,20 @@ body, .hero-container {
   font-size: 0;
 }
 
+.search-results {
+  width: 100%;
+  margin: 5rem 0 0 0;
+  display: flex;
+  flex-flow: row wrap;
+}
+
 @media screen and (min-width: 901px) {
   .hero-container {
     flex-flow: row;
   }
   .hero-image-container {
     width: 60%;
-    background-color: #EBF1F4;
+    background-color: #ebf1f4;
     border-radius: 0 0 0 0;
   }
   .hero-text {
