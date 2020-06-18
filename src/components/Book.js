@@ -1,12 +1,18 @@
 import React from "react";
+import PropTypes from 'prop-types'
+
 
 const Book = (props) => {
   const { book, booksShelfChange } = props;
-
+  
   const handleShelfChange = (e) => {
     let newValue = e.target.value;
     booksShelfChange(book, newValue);
   };
+
+  if (!book.shelf) {
+    book.shelf = "none";
+  } 
 
   return (
     <div className="book">
@@ -18,11 +24,11 @@ const Book = (props) => {
             height: 193,
             backgroundSize: "cover",
             backgroundRepeat: "none",
-            backgroundImage: `url(${book.imageLinks.thumbnail})`,
+            backgroundImage: `url(${book.imageLinks ? book.imageLinks.thumbnail : "https://via.placeholder.com/150"})`,
           }}
         />
         <div className="book-shelf-changer">
-          <select value={book.shelf} onChange={handleShelfChange}>
+          <select defaultValue={book.shelf} onChange={handleShelfChange} >
             <option value="anything" disabled>
               Move to...
             </option>
@@ -39,6 +45,11 @@ const Book = (props) => {
       </div>{" "}
     </div>
   );
+};
+
+Book.propTypes = {
+  book: PropTypes.object.isRequired,
+  booksShelfChange: PropTypes.func.isRequired
 };
 
 export default Book;

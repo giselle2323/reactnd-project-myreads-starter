@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import Shelf from "./Shelf";
 
 const CatergoryList = (props) => {
@@ -36,6 +37,11 @@ const CatergoryList = (props) => {
       </>
     </div>
   );
+};
+
+CatergoryList.propTypes = {
+  books: PropTypes.array.isRequired,
+  onBookShelfChange: PropTypes.func.isRequired
 };
 
 export default CatergoryList;

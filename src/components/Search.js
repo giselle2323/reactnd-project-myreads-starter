@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import * as BooksAPI from "../api/BooksAPI";
+import PropTypes from "prop-types"
 import Book from "./Book";
 
 const SearchPage = (props) => {
@@ -20,15 +21,18 @@ const SearchPage = (props) => {
   };
 
   const searchBooks = (searchTerm) => {
+    searchTerm === '' ? setMatchedBooks([]) :
     BooksAPI.search(searchTerm).then((matchedBooks) => {
-      matchedBooks = matchedBooks || [];
+      matchedBooks = matchedBooks || []
       setMatchedBooks(matchedBooks);
     });
   };
 
   const isBookOnShelf = (currentBook) => {
-    let currentBookOnShelf = books.find((book) => book.id === currentBook.id);
-    return currentBookOnShelf;
+    let currentBookOnShelf = books.find((book) => 
+      book.id === currentBook.id 
+    );
+    return currentBookOnShelf
   };
 
   return (
@@ -53,13 +57,18 @@ const SearchPage = (props) => {
           matchedBooks.map((book) => (
             <Book
               key={book.id}
-              book={isBookOnShelf(book) || book}
+              book={isBookOnShelf(book) || book }
               booksShelfChange={handleShelfChange}
             />
           ))}
       </div>
     </div>
   );
+};
+
+SearchPage.propTypes = {
+  books: PropTypes.array.isRequired,
+  onBookShelfChange: PropTypes.func.isRequired,
 };
 
 export default SearchPage;

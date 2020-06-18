@@ -79,12 +79,12 @@ body, .hero-container {
 .hero-header-text {
   font-size: 30px;
   color: #c8cfd9;
-  padding: 10px;
+  padding: 10px 10px 0 10px;
 }
 
 .hero-sub-header-text {
   font-size: 18px;
-  padding: 10px;
+  padding: 0 10px 0 10px;
 }
 
 /* Book Component */
@@ -95,6 +95,7 @@ body, .hero-container {
 
 .book-header {
   position: relative;
+  box-shadow: 1px -1px 11px 0px #000000b5;
 }
 
 .book-header-text {
@@ -256,6 +257,21 @@ body, .hero-container {
     margin: 1%;
   }
   .search-results {
+    flex-flow: row wrap;
+  }
+}
+
+/* Responsive CSS */
+
+@media screen and (min-width: 500px) and (max-width: 901px) {
+  .book {
+    width: 44%;
+    margin: 1%;
+  }
+  .search-results {
+    flex-flow: row wrap;
+  }
+  .book-grid {
     flex-flow: row wrap;
   }
 }
