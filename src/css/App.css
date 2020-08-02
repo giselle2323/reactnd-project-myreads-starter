@@ -12,7 +12,9 @@ body, .hero-container {
   font-family: 'Nunito', sans-serif;
   background: white;
 }
-
+#root {
+  height: 100%;
+}
 .root, .app {
   height: 100%;
 }
