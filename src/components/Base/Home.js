@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Book from "../images/book.svg";
+import Book from "../../images/book.svg";
 
 const Home = () => (
   <div className="hero-container">

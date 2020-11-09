@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Route, Link, BrowserRouter as Router } from "react-router-dom";
-import "../css/App.css";
-import * as BooksAPI from "../api/BooksAPI";
+import "../../css/App.css";
+import * as BooksAPI from "../../api/BooksAPI";
 
 import Home from "./Home";
 import Search from "./Search";
