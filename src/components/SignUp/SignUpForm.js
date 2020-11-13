@@ -3,55 +3,71 @@ import { Link } from 'react-router-dom'
 
 import * as ROUTES from '../../constants/routes'
 
-const SignUpForm = () => {
-
-  const [formState, setFormState] = useState({
+const SignUpForm = props => {
+  const INITIAL_STATE = {
     username: '',
     email: '',
     password: '',
     confirmPassword: '',
     error: null,
   }
-)
-  const onSubmit = () => {
-
+  const [formState, setFormState] = useState(INITIAL_STATE)
+  const onSubmit = e => {
+    const { username, email, password } = formState;
+    props.firebase
+    .doCreateUserWithEmailAndPassword(email, password)
+    .then(authUser => {
+      setFormState({...INITIAL_STATE });
+    })
+    .catch(error => {
+      setFormState({ error })
+    });
+    e.preventDefault();
   }
 
-  const onChange = () => {
+  const onChange = e => {
+    setFormState({ [e.target.name]: e.target.value});
+  };
 
-  }
+  const isInvalid =
+    password !== confirmPassword ||
+    password === '' ||
+    email === '' ||
+    username === '';
+
+  const { username, email, password, confirmPassword, error} = formState;
   return (
     <>
       <form onSubmit={onSubmit}>
         <input
           name="username"
           value={username}
-          onChange={this.onChange}
+          onChange={onChange}
           type="text"
           placeholder="Full Name"
         />
         <input
           name="email"
           value={email}
-          onChange={this.onChange}
+          onChange={onChange}
           type="text"
           placeholder="Email Address"
         />
         <input
-          name="passwordOne"
-          value={passwordOne}
-          onChange={this.onChange}
+          name="password"
+          value={password}
+          onChange={onChange}
           type="password"
           placeholder="Password"
         />
         <input
-          name="passwordTwo"
-          value={passwordTwo}
-          onChange={this.onChange}
+          name="confirmPassword"
+          value={confirmPassword}
+          onChange={onChange}
           type="password"
           placeholder="Confirm Password"
         />
-        <button type="submit">Sign Up</button>
+        <button disabled={isInvalid} type="submit">Sign Up</button>
 
         {error && <p>{error.message}</p>}
       </form>
